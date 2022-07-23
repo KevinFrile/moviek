@@ -5,10 +5,10 @@ import { VerMasComponent } from './pages/ver-mas/ver-mas.component';
 import { MoviekComponent } from './components/moviek/moviek.component';
 
 const routes: Routes = [
-  { path: 'home', component: MoviekComponent },
+  { path: 'home/:id', component: MoviekComponent },
   { path: 'verMas', component: VerMasComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'home/1' },
+  { path: '**', pathMatch: 'full', redirectTo: 'home/1' },
 ];
 
 

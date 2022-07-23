@@ -11,9 +11,9 @@ export class ApiPeliculasService {
 
   URL = `https://api.themoviedb.org/3/movie/`
 
-  getPeliculasPopulares(){
+  getPeliculasPopulares(page:number){
 
-    const query = `${this.URL}popular?api_key=eb3e397f0b1fafd1faad981453264da2&language=es-ES&page=500`
+    const query = `${this.URL}popular?api_key=eb3e397f0b1fafd1faad981453264da2&language=es-ES&page=${page}`
     return this.http.get(query);
   
   }

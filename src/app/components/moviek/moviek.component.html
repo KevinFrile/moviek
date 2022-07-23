@@ -1,9 +1,28 @@
-<div>
-    <div class="container text-center">
+<div id="contenedor-principal">
+    <div class="container">
         <div class="row">
             <div class="col-6 col-md-4 p-3" *ngFor="let pelicula of this.peliculas.results">
-                <app-pelicula [titulo]="this.pelicula.title" [img]="this.pelicula.backdrop_path" > </app-pelicula>
+                <app-pelicula [titulo]="this.pelicula.title" [img]="this.pelicula.backdrop_path"> </app-pelicula>
             </div>
         </div>
-    </div>
+    
+        <div class="row">
+            <div class="col-6">
+                <button class="page-button" (click)="anteriorPagina()">
+                    <h4 [ngClass]="{'disabled': this.disabledAtras}" >Previous</h4>
+                </button>
+            </div>
+
+            <div class="col-6">
+                <button class="page-button" (click)="siguientePagina()">
+                    <h4 >Next</h4>
+                </button>
+            </div>
+        </div>
+
+    
+
+    
+
+
 </div>

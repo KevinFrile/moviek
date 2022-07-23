@@ -19,11 +19,7 @@ export class PeliculaComponent implements OnInit {
 
   verMas() {
   
-    this.router.navigate(['/','verMas']).then(nav => {
-      console.log(nav); // true if navigation is successful
-    }, err => {
-      console.log(err) // when there's an error
-    });
+    this.router.navigate(['/','verMas'])
   }
 
 }
