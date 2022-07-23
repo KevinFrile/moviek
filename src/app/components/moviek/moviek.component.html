@@ -1,5 +1,25 @@
 <div id="contenedor-principal">
 
+    <div *ngIf="this.errores.length > 0 ">
+        <div *ngFor="let error of errores" class="alert alert-danger " role="alert">
+
+
+            <div class="row">
+                <div class="col">
+                    <button class="page-button m-0 w-100" (click)="anteriorPagina()">
+                        <h4 [ngClass]="{'disabled': this.disabledAtras}">volver</h4>
+                    </button>
+                </div>
+
+                <div class="col">
+                    <i class="fa-solid fa-circle-exclamation "></i> {{error}} 
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
     <app-loader *ngIf="this.loading == true"></app-loader>
 
     <div class="container" *ngIf="this.loading == false">
@@ -16,13 +36,13 @@
         <div class="row">
             <div class="col-6">
                 <button class="page-button w-100" (click)="anteriorPagina()">
-                    <h4 [ngClass]="{'disabled': this.disabledAtras}">Previous</h4>
+                    <h4 [ngClass]="{'disabled': this.disabledAtras}">Volver</h4>
                 </button>
             </div>
 
             <div class="col-6">
                 <button class="page-button w-100" (click)="siguientePagina()">
-                    <h4>Next</h4>
+                    <h4>Siguiente</h4>
                 </button>
             </div>
         </div>

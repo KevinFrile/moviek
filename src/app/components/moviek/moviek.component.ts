@@ -17,6 +17,8 @@ export class MoviekComponent implements OnInit {
   peliculas: PeliculasPopulares
   loading:boolean = true
 
+  errores:Array<string> = []
+
   constructor(
     private apiPeliculasService: ApiPeliculasService,
     private rutaActiva: ActivatedRoute,
@@ -59,19 +61,26 @@ export class MoviekComponent implements OnInit {
       this.peliculas = res
 
       // para que se pueda ver el loading (la pagina carga muy rapido)
+      this.errores = []
+
       setTimeout(() => {
         this.loading = false
       }, 1000);
       
+    },err=>{
+      this.errores = err.error.errors      
+
     })
   }
 
   anteriorPagina() {
 
     // validacion para no poder buscar paginas menores a 1 
-    if (this.paginaActivada <= 1) {
+    if (this.paginaActivada <= 1 || this.paginaActivada > 500) {
+
       this.paginaActivada = 1
       this.router.navigate(['/home', 1])
+      this.obtenerPeliculasPopulares()
 
     } else {
 

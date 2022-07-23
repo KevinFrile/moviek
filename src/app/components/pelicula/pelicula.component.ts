@@ -13,6 +13,7 @@ export class PeliculaComponent implements OnInit {
   @Input() img: string = 'no encontramos la imagen de esta pelicula';
   @Input() id: number = 0;
 
+  
   constructor(public router: Router) { }
 
   ngOnInit(): void {

@@ -11,27 +11,39 @@ import { Location } from '@angular/common';
 })
 export class VerMasComponent implements OnInit {
 
-  video:boolean = false
+  video: boolean = false
   pelicula!: Pelicula;
+  loading: boolean = true
+
+  errores: Array<string> = []
 
   constructor(
-    private apiPeliculasService:ApiPeliculasService,
+    private apiPeliculasService: ApiPeliculasService,
     private rutaActiva: ActivatedRoute,
     private location: Location) { }
 
   ngOnInit(): void {
 
     let idPelicula = Number(this.rutaActiva.snapshot.params['id'])
-    
-    this.apiPeliculasService.getPelicula(idPelicula).subscribe((res:any)=>{
+
+    this.apiPeliculasService.getPelicula(idPelicula).subscribe((res: any) => {
       this.pelicula = res
       console.log(this.pelicula);
-      
+
+      // para que se pueda ver el loading (la pagina carga muy rapido)
+      setTimeout(() => {
+        this.loading = false
+      }, 1000);
+
+    }, err => {
+      this.errores = err.error.errors
+      console.log(this.errores);
+
     })
 
   }
-  
-  atras(){
+
+  atras() {
     this.location.back();
   }
 }

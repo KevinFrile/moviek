@@ -1,8 +1,16 @@
 <div id="contenedor">
-    <div class="row">
+
+    <div *ngFor="let error of errores" class="alert alert-danger" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i> {{error}}
+      </div>
+
+    <app-loader *ngIf="this.loading == true"></app-loader>
+
+    <div *ngIf="this.loading == false" class="row">
         <div class="col-12 position-relative">
             <button id="btn-volver" class="page-button" (click)="atras()"><i class="fa-solid fa-arrow-left"></i></button>
-            <img [src]="'https://image.tmdb.org/t/p/original/' + this.pelicula.backdrop_path" alt="">
+            <img *ngIf="this.pelicula.backdrop_path != null" [src]="'https://image.tmdb.org/t/p/original/' + this.pelicula.backdrop_path" [alt]="this.pelicula.title">
+            <img *ngIf="this.pelicula.backdrop_path == null" src = "https://programacion.net/files/article/20161110041116_image-not-found.png" alt="Error al buscar la imagen">
         </div>
 
         <div class="col-12">
