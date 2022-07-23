@@ -1,28 +1,34 @@
 <div id="contenedor-principal">
-    <div class="container">
+
+    <app-loader *ngIf="this.loading == true"></app-loader>
+
+    <div class="container" *ngIf="this.loading == false">
+
+
         <div class="row">
             <div class="col-6 col-md-4 p-3" *ngFor="let pelicula of this.peliculas.results">
-                <app-pelicula [titulo]="this.pelicula.title" [img]="this.pelicula.backdrop_path"> </app-pelicula>
+                <app-pelicula [titulo]="this.pelicula.title" [img]="this.pelicula.backdrop_path"
+                    [id]="this.pelicula.id">
+                </app-pelicula>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-6">
-                <button class="page-button" (click)="anteriorPagina()">
-                    <h4 [ngClass]="{'disabled': this.disabledAtras}" >Previous</h4>
+                <button class="page-button w-100" (click)="anteriorPagina()">
+                    <h4 [ngClass]="{'disabled': this.disabledAtras}">Previous</h4>
                 </button>
             </div>
 
             <div class="col-6">
-                <button class="page-button" (click)="siguientePagina()">
-                    <h4 >Next</h4>
+                <button class="page-button w-100" (click)="siguientePagina()">
+                    <h4>Next</h4>
                 </button>
             </div>
         </div>
 
-    
 
-    
+    </div>
 
 
 </div>

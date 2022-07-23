@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+  background-color: black;
+}
+
+.page-button {
+   
+    margin-top: 50px;
+    margin-bottom: 80px;
+    background-color: #000000;
+    border: 2px solid #ffffffb6;
+    border-radius: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 300ms cubic-bezier(.23, 1, 0.32, 1), background-color 0.4s cubic-bezier(.23, 1, 0.32, 1);
+
+  }
+  
+  .page-button h4{
+      font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+  
+  }
+  
+  
+  .page-button:hover {
+    box-shadow: rgba(236, 9, 9, 0.25) 0 8px 15px;
+    transform: translateY(-4px);
+    background-color: rgba(229, 9, 20, 0.733);
+  }
+  
+  .page-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }

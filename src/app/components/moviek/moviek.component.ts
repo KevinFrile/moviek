@@ -15,6 +15,7 @@ export class MoviekComponent implements OnInit {
   disabledAtras:boolean = false
   paginaActivada: number = 1
   peliculas: PeliculasPopulares
+  loading:boolean = true
 
   constructor(
     private apiPeliculasService: ApiPeliculasService,
@@ -36,11 +37,11 @@ export class MoviekComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     this.obtenerPeliculasPopulares()
   }
 
   obtenerPeliculasPopulares() {
+    this.loading = true
 
     // validacion de la url para no poder buscar paginas menores a 1
     if (this.paginaActivada <= 1) {
@@ -51,13 +52,17 @@ export class MoviekComponent implements OnInit {
     } else{
 
       this.disabledAtras = false
-
     }
 
 
     this.apiPeliculasService.getPeliculasPopulares(this.paginaActivada).subscribe((res: any) => {
       this.peliculas = res
-      console.log(this.peliculas);
+
+      // para que se pueda ver el loading (la pagina carga muy rapido)
+      setTimeout(() => {
+        this.loading = false
+      }, 1000);
+      
     })
   }
 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiPeliculasService } from '../../service/api-peliculas.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Pelicula } from '../../models/pelicula.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-ver-mas',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerMasComponent implements OnInit {
 
-  constructor() { }
+  video:boolean = false
+  pelicula!: Pelicula;
+
+  constructor(
+    private apiPeliculasService:ApiPeliculasService,
+    private rutaActiva: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit(): void {
-  }
 
+    let idPelicula = Number(this.rutaActiva.snapshot.params['id'])
+    
+    this.apiPeliculasService.getPelicula(idPelicula).subscribe((res:any)=>{
+      this.pelicula = res
+      console.log(this.pelicula);
+      
+    })
+
+  }
+  
+  atras(){
+    this.location.back();
+  }
 }

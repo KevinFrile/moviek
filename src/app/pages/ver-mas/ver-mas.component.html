@@ -1,1 +1,28 @@
-<p>ver-mas works!</p>
+<div id="contenedor">
+    <div class="row">
+        <div class="col-12 position-relative">
+            <button id="btn-volver" class="page-button" (click)="atras()"><i class="fa-solid fa-arrow-left"></i></button>
+            <img [src]="'https://image.tmdb.org/t/p/original/' + this.pelicula.backdrop_path" alt="">
+        </div>
+
+        <div class="col-12">
+
+            <div id="info">
+                <h3 class="mt-5 mb-4">{{this.pelicula.title}}</h3>
+                <p>{{this.pelicula.overview}}</p>
+                <h5 class="mt-5">presupuesto: {{this.pelicula.budget | currency:'USD'}}</h5>
+
+                <h5 class="mt-5">Pais de produccion</h5>
+                <h5 class="ms-3 mt-2" *ngFor="let produccion of this.pelicula.production_countries">
+                    - {{produccion.name}}
+                </h5>
+
+                <h5 class="mt-5 mb-5"><i class="fa-solid fa-star"></i> {{this.pelicula.vote_average}}</h5>
+
+                <a *ngIf="this.pelicula.homepage != '' " class="mt-5" [href]="this.pelicula.homepage" target="_blank"> <i class="fa-solid fa-earth-americas"></i> visitar sitio web</a>
+
+            </div>
+        </div>
+
+    </div>
+</div>

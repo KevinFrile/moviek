@@ -8,6 +8,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviekComponent } from './components/moviek/moviek.component';
 import { VerMasComponent } from './pages/ver-mas/ver-mas.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { VerMasComponent } from './pages/ver-mas/ver-mas.component';
     PeliculaComponent,
     BuscadorComponent,
     MoviekComponent,
-    VerMasComponent
+    VerMasComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

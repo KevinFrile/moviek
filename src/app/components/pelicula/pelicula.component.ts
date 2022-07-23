@@ -11,6 +11,7 @@ export class PeliculaComponent implements OnInit {
 
   @Input() titulo: string = 'no encontramos el titulo de esta pelicula';
   @Input() img: string = 'no encontramos la imagen de esta pelicula';
+  @Input() id: number = 0;
 
   constructor(public router: Router) { }
 
@@ -18,8 +19,7 @@ export class PeliculaComponent implements OnInit {
   }
 
   verMas() {
-  
-    this.router.navigate(['/','verMas'])
+    this.router.navigate(['/verMas',this.id])
   }
 
 }
