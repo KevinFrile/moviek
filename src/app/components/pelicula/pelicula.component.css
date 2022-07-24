@@ -1,4 +1,24 @@
-.card{
+.loadCard {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    border-radius: 13px;
+    background:
+        linear-gradient(0.25turn, transparent, rgb(255, 255, 255), transparent),
+        linear-gradient(135deg, rgb(199, 199, 202) 0%, rgb(188, 188, 194) 35%, rgb(235, 230, 230) 100%);
+    background-repeat: no-repeat;
+    background-position: -100px 0, 0 0;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    to {
+        background-position: 415px 0, 0 0, 15px 150px, 15px 180px;
+    }
+}
+
+.card {
     height: 400px;
     width: 100%;
     margin: 0%;
@@ -7,13 +27,13 @@
     border-radius: 13px;
 }
 
-.card:hover{
+.card:hover {
     background: rgba(229, 9, 20, 0.74);
     cursor: pointer;
 }
 
 
-#titulo{
+#titulo {
 
     position: absolute;
     padding: 20px;
@@ -27,22 +47,30 @@
     color: white;
     opacity: 0;
     transition: all 0.6s;
-    
+
 }
 
-.card:hover #titulo{
+#id {
+    position: absolute;
+    right: 0;
+    color: rgb(255, 234, 235);
+    z-index: 100;
+    cursor: auto;
+}
+
+.card:hover #titulo {
     opacity: 1;
 }
 
-img{
+img {
     height: 100%;
     width: 100%;
-    object-fit: cover ;
+    object-fit: cover;
     mix-blend-mode: multiply;
     border-radius: 13px;
 }
 
-img:hover{
+img:hover {
     mix-blend-mode: multiply;
     transition: all 0.6s;
 }

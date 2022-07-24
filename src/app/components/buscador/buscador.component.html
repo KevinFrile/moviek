@@ -1,1 +1,4 @@
-<p>buscador works!</p>
+<form  [formGroup]="idForm" (ngSubmit)="buscar()" class="d-flex" role="search">
+    <input class="buscador me-2" type="number" placeholder="Buscar por id" formControlName="id">
+    <button class="btn btn-buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form>

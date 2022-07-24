@@ -11,10 +11,9 @@ import { Location } from '@angular/common';
 })
 export class VerMasComponent implements OnInit {
 
-  video: boolean = false
+
   pelicula!: Pelicula;
   loading: boolean = true
-
   errores: Array<string> = []
 
   constructor(
@@ -24,26 +23,40 @@ export class VerMasComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.obtenerPelicula()
+  }
+
+  obtenerPelicula(){
+    // obtenemos el id de los parametros por url
     let idPelicula = Number(this.rutaActiva.snapshot.params['id'])
 
+    // hacemos la peticion con el is obtenido
     this.apiPeliculasService.getPelicula(idPelicula).subscribe((res: any) => {
-      this.pelicula = res
-      console.log(this.pelicula);
 
+      // guardamos la respuesta en peliculas pra poder mostrar la informacion en el html
+      this.pelicula = res
       // para que se pueda ver el loading (la pagina carga muy rapido)
       setTimeout(() => {
         this.loading = false
       }, 1000);
 
+      this.errores = []
+
     }, err => {
-      this.errores = err.error.errors
-      console.log(this.errores);
 
+      console.log(err);
+      
+      this.errores = []
+      // si sucede un error se ejecuta en el html un ngfor con los posibles errores
+      let error = err.error.status_message
+      this.errores.push(error)
+      
     })
-
   }
 
+  // se ejecuta cuando el usuario quiera volver a la lista de peliculas
   atras() {
     this.location.back();
+    this.obtenerPelicula()
   }
 }

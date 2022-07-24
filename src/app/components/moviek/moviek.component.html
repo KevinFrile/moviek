@@ -1,8 +1,10 @@
+<app-menu *ngIf="this.loading == false"></app-menu>
 <div id="contenedor-principal">
 
+
+     <!-- for de los posibles errores -->
     <div *ngIf="this.errores.length > 0 ">
         <div *ngFor="let error of errores" class="alert alert-danger " role="alert">
-
 
             <div class="row">
                 <div class="col">
@@ -12,17 +14,17 @@
                 </div>
 
                 <div class="col">
-                    <i class="fa-solid fa-circle-exclamation "></i> {{error}} 
+                    <i class="fa-solid fa-circle-exclamation "></i> {{error}}
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
 
     <app-loader *ngIf="this.loading == true"></app-loader>
 
-    <div class="container" *ngIf="this.loading == false">
+    <div class="container mt-5" *ngIf="this.loading == false">
 
 
         <div class="row">

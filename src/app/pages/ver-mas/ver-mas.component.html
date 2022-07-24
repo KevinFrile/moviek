@@ -1,11 +1,28 @@
 <div id="contenedor">
 
-    <div *ngFor="let error of errores" class="alert alert-danger" role="alert">
-        <i class="fa-solid fa-circle-exclamation"></i> {{error}}
-      </div>
+    <!-- for de los posibles errores -->
+    <div *ngIf="this.errores.length > 0 ">
+        <div *ngFor="let error of errores" class="alert alert-danger " role="alert">
 
+            <div class="row">
+                <div class="col">
+                    <button class="page-button m-0 w-100" (click)="atras()">
+                        <h4>volver</h4>
+                    </button>
+                </div>
+
+                <div class="col">
+                    <i class="fa-solid fa-circle-exclamation "></i> {{error}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- pantalla de carga -->
     <app-loader *ngIf="this.loading == true"></app-loader>
 
+    <!-- contenido principal de la pagina (informacion de la pelicula seleccionada) -->
     <div *ngIf="this.loading == false" class="row">
         <div class="col-12 position-relative">
             <button id="btn-volver" class="page-button" (click)="atras()"><i class="fa-solid fa-arrow-left"></i></button>

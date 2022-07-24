@@ -14,9 +14,8 @@ export class MoviekComponent implements OnInit {
 
   disabledAtras:boolean = false
   paginaActivada: number = 1
-  peliculas: PeliculasPopulares
+  peliculas!: PeliculasPopulares
   loading:boolean = true
-
   errores:Array<string> = []
 
   constructor(
@@ -24,20 +23,13 @@ export class MoviekComponent implements OnInit {
     private rutaActiva: ActivatedRoute,
     public router: Router) {
 
-    this.peliculas = {
-      page: 0,
-      results: [],
-      total_pages: 0,
-      total_results: 0
-    }
-
-    let numeroPagina = Number(this.rutaActiva.snapshot.params['id'])
-    this.paginaActivada = numeroPagina
-
-
   }
 
   ngOnInit(): void {
+
+    // obtenemos el numero de pagina
+    let numeroPagina = Number(this.rutaActiva.snapshot.params['id'])
+    this.paginaActivada = numeroPagina
 
     this.obtenerPeliculasPopulares()
   }
@@ -57,7 +49,10 @@ export class MoviekComponent implements OnInit {
     }
 
 
+    // peticion para obtener las peliculas de la pagina
     this.apiPeliculasService.getPeliculasPopulares(this.paginaActivada).subscribe((res: any) => {
+
+      // guardamos la respuesta 
       this.peliculas = res
 
       // para que se pueda ver el loading (la pagina carga muy rapido)
@@ -68,6 +63,7 @@ export class MoviekComponent implements OnInit {
       }, 1000);
       
     },err=>{
+      // obtenemos los errores
       this.errores = err.error.errors      
 
     })
@@ -92,10 +88,17 @@ export class MoviekComponent implements OnInit {
 
   }
 
+
+  // se ejecuta al darle click a siguiente
   siguientePagina() {
 
+    // cambaimos la url
     this.router.navigate(['/home', this.paginaActivada + 1])
+
+    // cambiamos el numero de pagina
     this.paginaActivada = this.paginaActivada + 1
+
+    // obtenemos las nuevas peliculas
     this.obtenerPeliculasPopulares()
   }
 

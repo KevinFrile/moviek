@@ -1,6 +1,15 @@
-<div class="card" (click)="verMas()">
+<div class="card">
     
-    <img *ngIf="this.img != null" [src] = " 'https://image.tmdb.org/t/p/original/' + this.img " [alt]="this.titulo">
-    <img *ngIf="this.img == null" src = "https://programacion.net/files/article/20161110041116_image-not-found.png" alt="Error al buscar la imagen">
-    <h5 id="titulo">{{this.titulo}}</h5>
+    <!-- load de la card -->
+    <div *ngIf="this.load == true" class="loadCard"></div>
+
+    <!-- contenido de la card-->
+    <h5 class="text-end p-3" id="id"># {{this.id}}</h5>
+
+    <div class="w-100 h-100" (click)="verMas()">
+        <img (load)="this.imgCargada()" *ngIf="this.img != null" [src] = " 'https://image.tmdb.org/t/p/original/' + this.img " [alt]="this.titulo">
+        <img (load)="this.imgCargada()" *ngIf="this.img == null" src = "https://programacion.net/files/article/20161110041116_image-not-found.png" alt="Error al buscar la imagen">
+        <h5 id="titulo">{{this.titulo}}</h5>
+    </div>
+     
 </div>
