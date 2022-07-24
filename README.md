@@ -1,27 +1,51 @@
-# Moviek
+# MOVIEK
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+_Diseño y Desarrollo de una pagina web donde podras consultar informacion de diferentes peliculas usando una api._
 
-## Development server
+## Comenzando 🚀
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Descargue o Clone el proyecto
+2. Si lo descargo, descomprima el proyecto
+3. En la carpeta del proyecto ejecute npm i
+4. Y por ultimo ejecute el comando ng serve
 
-## Code scaffolding
+## Backend (api)
+[Documentacion](https://developers.themoviedb.org/3/movies/get-movie-videos)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Pre-requisitos 📋
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Node.js
+2. Angular cli
+```
+npm install -g @angular/cli
+```
 
-## Running unit tests
+### Instalación 🔧
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+_Despues de clonar o descargar el proyecto ejecute_
 
-## Running end-to-end tests
+```
+npm i
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+_Y_
 
-## Further help
+```
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Construido con 🛠️
+
+
+* [Angular](https://angular.io/)
+* [bootstrap](https://getbootstrap.com/)
+* [HTML]
+* [CSS]
+* [TS]
+
+## Autor ✒️
+
+* **Kevin Fraile** - *Frontend*
+
