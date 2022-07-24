@@ -12,6 +12,9 @@ _Diseño y Desarrollo de una pagina web donde podras consultar informacion de di
 ## Backend (api)
 [Documentacion](https://developers.themoviedb.org/3/movies/get-movie-videos)
 
+## Web
+[WEB](https://moviek-kevinfrile.vercel.app)
+
 
 ### Pre-requisitos 📋
 
